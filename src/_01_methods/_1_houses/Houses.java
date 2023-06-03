@@ -10,6 +10,8 @@ import org.jointheleague.graphical.robot.Robot;
  */
 public class Houses {
 	Robot rob=new Robot();
+
+	int height=0;
 	public void run() {
 		// Check the recipe to find out what code to put here
 		rob.setX(5);
@@ -38,37 +40,60 @@ public class Houses {
 		}
 	}
 	public void drawHouse(String size ) {
-		Random gen=new Random();
-		int u = gen.nextInt(255);
-		int height=0;
+		
 		if(size.equals("small")) {
 		height=60;
+		drawPointyroof(size);
 		}
 		if(size.equals("medium")) {
 			height=120;
+			drawPointyroof(size);
 			}
 		if(size.equals("large")) {
 			height=250;
+			drawFlatRoof(size);
 			}
-		
-		
+
+		}
+	public void drawPointyroof(String size ) {
+		Random gen=new Random();
+		int u = gen.nextInt(255);
+		int o = gen.nextInt(255);
+		int i = gen.nextInt(255);
+		rob.setPenColor(u,i,o);
 		rob.penDown();
 		rob.setSpeed(100);
 		rob.setAngle(360);
-		rob.setPenColor(u,u,u);
 		rob.move(height);
-		rob.setAngle(90);
-		rob.setPenColor(u,u,u);
+		rob.setAngle(15);
+		rob.move(30);
+		rob.setAngle(165);
 		rob.move(30);
 		rob.setAngle(180);
-		rob.setPenColor(u,u,u);
 		rob.move(height);
 		rob.setAngle(90);
 		rob.setPenColor(0,255,0);
 		rob.move(30);
-		}
-		
-		
+	}
+	
+	public void drawFlatRoof(String size ) {
+		Random gen=new Random();
+		int u = gen.nextInt(255);
+		int o = gen.nextInt(255);
+		int i = gen.nextInt(255);
+		rob.setPenColor(u,i,o);
+		rob.penDown();
+		rob.setSpeed(100);
+		rob.setAngle(360);
+		rob.move(height);
+		rob.setAngle(90);
+		rob.move(30);
+		rob.setAngle(180);
+		rob.move(height);
+		rob.setAngle(90);
+		rob.setPenColor(0,255,0);
+		rob.move(30);
+	}
 		
 	}
 	
