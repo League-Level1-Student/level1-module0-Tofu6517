@@ -28,9 +28,9 @@ public class PhotoQuiz {
 		// “Copy Image Address” )
 
 		// 2. create a variable of type "Component" that will hold your image
-
+		Component image=createImage(https://images.immediate.co.uk/production/volatile/sites/30/2013/07/tofu-6a6a4ef.jpg);
 		// 3. use the "createImage()" method below to initialize your Component
-
+		
 		// 4. add the image to the quiz window
 
 		// 5. call the pack() method on the quiz window

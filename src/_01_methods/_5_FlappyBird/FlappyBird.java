@@ -7,12 +7,13 @@ public class FlappyBird extends PApplet {
     static final int HEIGHT = 600;
     int x=400;
     int y=300;
-    int birdYVelocity = 1;
+    int birdYVelocity = 2;
     int gravity = 1;
     int X=600;
     int pipeGap=200;
     int upperPipeHeight = (int) random(100, 400);
     int lowerY = upperPipeHeight +pipeGap;
+    int score = 0;
     @Override
     public void settings() {
         size(WIDTH, HEIGHT);
@@ -38,8 +39,15 @@ public class FlappyBird extends PApplet {
     	X-=2;
     	rect(X,-1,50,upperPipeHeight);
     	rect(X,lowerY,50,400);
-    	rect();
-    	
+    	rect(0,600,800,-20);
+    	if (y>=580) {
+    		exit();
+    	}
+    	if(x==X) {
+    	checkCatch(x);
+    	}
+    		text("Score: " + score, 20, 20);
+    
     	
     	if(X<=-50) {
     	upperPipeHeight = (int) random(100, 400);
@@ -47,6 +55,16 @@ public class FlappyBird extends PApplet {
     		X+=850;
     	}
     }
+    
+    void checkCatch(int x) {
+        if (x==X) {
+            score++;
+        } else if (score > 0) {
+            score--;
+        }
+        println("Your score is now: " + score);
+    }
+
     boolean intersectsPipes() { 
         if (y < upperPipeHeight && x > X && x < (X+50)){
            return true; }
