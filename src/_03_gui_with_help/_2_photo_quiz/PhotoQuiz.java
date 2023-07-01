@@ -5,6 +5,7 @@ package _03_gui_with_help._2_photo_quiz;
  */
 
 import java.awt.Component;
+import java.awt.Panel;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -28,25 +29,48 @@ public class PhotoQuiz {
 		// “Copy Image Address” )
 
 		// 2. create a variable of type "Component" that will hold your image
-		Component image=createImage(https://images.immediate.co.uk/production/volatile/sites/30/2013/07/tofu-6a6a4ef.jpg);
+		Component image1;
 		// 3. use the "createImage()" method below to initialize your Component
-		
+		image1=createImage("https://images.immediate.co.uk/production/volatile/sites/30/2013/07/tofu-6a6a4ef.jpg");
 		// 4. add the image to the quiz window
-
+		quizWindow.add(image1);
 		// 5. call the pack() method on the quiz window
-
+		quizWindow.pack();
 		// 6. ask a question that relates to the image
-
+		String answer1=JOptionPane.showInputDialog("What is this.");
 		// 7. print "CORRECT" if the user gave the right answer
-
+		if(answer1.equals("tofu")) {
+			JOptionPane.showMessageDialog(null,"CORRECT");
+		}
 		// 8. print "INCORRECT" if the answer is wrong
-
+		else {
+			JOptionPane.showMessageDialog(null,"INCORRECT");
+		}
 		// 9. remove the component from the quiz window (you may not see the
-		// effect of this until step 12)
-
+		// effect of this until step 12)	
+		quizWindow.remove(image1);
 		// 10. find another image and create it (might take more than one line
 		// of code)
+		Component image2;
+		
+		image2=createImage("https://static.wikia.nocookie.net/silly-cats/images/5/5f/Jinx.jpg/revision/latest/scale-to-width-down/203?cb=20221219145341");
 
+		quizWindow.add(image2);
+
+		quizWindow.pack();
+		
+		String answer2=JOptionPane.showInputDialog("What is this.");
+
+		if(answer2.equals("cat")) {
+			JOptionPane.showMessageDialog(null,"CORRECT");
+		}
+		else if (answer2.equals("jinx the cat")) {
+			JOptionPane.showMessageDialog(null,"CORRECT");
+		}
+
+		else {
+			JOptionPane.showMessageDialog(null,"INCORRECT");
+		}
 		// 11. add the second image to the quiz window
 
 		// 12. pack the quiz window
