@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.xml.soap.Text;
 
 public class BodyPartQuiz {
 
@@ -21,14 +22,14 @@ public class BodyPartQuiz {
 	// package,or if you prefer, get celebrity photos from the Internet,
 	// place them in the recipe package(body_part_quiz), and change the names below.
 
-	String firstImage = "src/_05_body_part_quiz/arnold.jpeg";
-	String secondImage = "src/_05_body_part_quiz/leonardo.jpeg";
-	String thirdImage = "src/_05_body_part_quiz/morgan.jpeg";
-	String fourthImage = "src/_05_body_part_quiz/jack.jpeg";
+	String firstImage = "src/_03_gui_with_help/_4_body_part_quiz/arnold.jpeg";
+	String secondImage = "src/_03_gui_with_help/_4_body_part_quiz/leonardo.jpeg";
+	String thirdImage = "src/_03_gui_with_help/_4_body_part_quiz/morgan.jpeg";
+	String fourthImage = "src/_03_gui_with_help/_4_body_part_quiz/jack.jpeg";
 
 	JFrame window = new JFrame();
 	JPanel panel = new JPanel();
-
+	int score=0;
 	public void run() {
 		initializeGui();
 		startQuiz();
@@ -42,34 +43,67 @@ public class BodyPartQuiz {
 
 		// 3. Change the size of the window so that you can only see part of the
 		// image.
-		window.setSize(500, 500);
+		window.setSize(250, 500);
 
 		showNextImage();
-
+		
 	}
 
 	private void startQuiz() {
 
 		// 1. Make an int variable to hold the score.
-
+	
 		// 2. Set the size of the window in the initializeGui() method 
 
 		// 4. Ask the user who this person is and store their answer
-		String guess = JOptionPane.showInputDialog("who is this?");
+		String guess1 = JOptionPane.showInputDialog("who is this?");
 
 		// 5. Check their answer. If they guessed correctly:
 		// -- Tell them they are right and increase the score by 1
-
+if(guess1.equals("arnold")) {
+	System.out.println("You are right.");
+	score=score+1;
+}
 		// 6. Otherwise:
 		// -- Tell them they are wrong and who the person is
-
+else {
+	System.out.println("You are wrong. It was arnold.");
+}
 		// 7. Use the showNextImage() method below to get the next image
 		showNextImage();
 
 		// 8. .... repeat 4-7 for all your images.....
+		String guess2 = JOptionPane.showInputDialog("who is this?");
 
+if(guess2.equals("jack")) {
+	System.out.println("You are right.");
+	score=score+1;
+}
+else {
+	System.out.println("You are wrong. It was jack.");
+}
+
+String guess3 = JOptionPane.showInputDialog("who is this?");
+
+if(guess3.equals("lenoardo")) {
+System.out.println("You are right.");
+score=score+1;
+}
+else {
+System.out.println("You are wrong. It was lenardo.");
+}
+
+String guess4 = JOptionPane.showInputDialog("who is this?");
+
+if(guess4.equals("morgan")) {
+System.out.println("You are right.");
+score=score+1;
+}
+else {
+System.out.println("You are wrong. It was morgan.");
+}
 		// 9. Show them their current score
-
+System.out.println(score);
 	}
 
 	public void showNextImage() {
